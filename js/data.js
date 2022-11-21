@@ -1,4 +1,4 @@
-import {getRandomIntInclusive} from './util.js';
+import { getRandomIntInclusive } from './util.js';
 
 const photos = [];
 const createPhoto = function (id) {
@@ -11,8 +11,12 @@ const createPhoto = function (id) {
   };
 };
 
-for (let i = 1; i <= 25; i++) {
-  photos.push(createPhoto(i));
-}
 
-window.console.log(createPhoto(photos));
+const createPhotos = () => {
+  for (let i = 1; i <= 25; i++) {
+    photos.push(createPhoto(i));
+  }
+  return photos;
+};
+
+export {createPhotos};
