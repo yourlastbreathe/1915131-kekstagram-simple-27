@@ -11,4 +11,4 @@ function getRandomIntInclusive(min, max) {
 }
 getRandomIntInclusive(1, 9); //функция, возвращающая случайное целое число из переданного диапазона включительно взята из developer.mozilla.org
 
-export {getRandomIntInclusive};
+export {getRandomIntInclusive, checkStringLength};
