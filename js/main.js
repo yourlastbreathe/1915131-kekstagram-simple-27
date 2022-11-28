@@ -1,7 +1,10 @@
-import { createPhotos } from './data.js';
-import { renderPhoto } from './photo.js';
-import { addHandlersToElements } from './upload.js';
+import { renderPhotoMiniature } from './rendering-thumbnails.js';
+import { getData } from './form/api.js';
+import { setUserFormSubmit } from './form/validate-form.js';
+import { closeModal } from './modal/modal-main.js';
 
-const photosData = createPhotos(25);
-renderPhoto(photosData);
-addHandlersToElements();
+getData((picturesData) => {
+  renderPhotoMiniature(picturesData);
+});
+
+setUserFormSubmit(closeModal);
