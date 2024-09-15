@@ -1,14 +1,34 @@
-function checkStringLength(string, minLength, maxLength) {
-  return string.length <= maxLength && string.length >= minLength;
-}
+const ALERT_SHOW_TIME = 5000;
 
-checkStringLength('ddd', 6, 6);
+/**
+ * Функция, проверки нажатия клавиши эскейп
+ * @param {*} evt
+ * @returns {boolean}
+ */
+const isEscapeKey = (evt) => evt.key === 'Escape';
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
-}
-getRandomIntInclusive(1, 9); //функция, возвращающая случайное целое число из переданного диапазона включительно взята из developer.mozilla.org
+const showAlert = (message) => {
+  const alertContainer = document.createElement('div');
+  alertContainer.style.zIndex = '100';
+  alertContainer.style.position = 'absolute';
+  alertContainer.style.left = '0';
+  alertContainer.style.top = '0';
+  alertContainer.style.right = '0';
+  alertContainer.style.padding = '10px 3px';
+  alertContainer.style.fontSize = '30px';
+  alertContainer.style.textAlign = 'center';
+  alertContainer.style.backgroundColor = 'red';
 
-export {getRandomIntInclusive};
+  alertContainer.textContent = message;
+
+  document.body.append(alertContainer);
+
+  setTimeout(() => {
+    alertContainer.remove();
+  }, ALERT_SHOW_TIME);
+};
+
+export {
+  isEscapeKey,
+  showAlert
+};
